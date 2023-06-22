@@ -1,0 +1,15 @@
+<div class="list">
+  <button class="button-class">
+    <span class="material-symbols-outlined"> restaurant </span>
+  </button>
+  <div class="content">
+    <p class="item">{{ passlist?.food | titlecase }}</p>
+    <p *ngIf="passlist?.calory">{{ passlist?.calory }}kcl&nbsp;{{ passlist?.weight }}g</p>
+  </div>
+  <button (click)="edit()" class="button-class red edit">
+    <i class="fa-solid fa-pen-to-square"></i>
+  </button>
+  <button (click)="delete()" class="button-class red">
+     <i class="fa-solid fa-trash-can"></i>
+  </button>
+</div>

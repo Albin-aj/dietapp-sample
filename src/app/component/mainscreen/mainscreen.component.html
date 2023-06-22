@@ -1,0 +1,32 @@
+<div class="outer">
+  <div class="border">
+    <div class="container">
+      <div class="head">
+        <button class="arrow" (click)="istrue=false">
+          <span class="material-symbols-outlined"> arrow_back_ios_new </span>
+        </button>
+        <h1>Breakfast</h1>
+      </div>
+      <div class="list-container">
+        <button class="addbutton" (click)="istrue = !istrue" >
+          <span class="material-symbols-outlined"> add </span>
+        </button>
+        <div class="sub">
+          <app-screenlist
+            *ngFor="let item of itemlist; let idx = index"  [passlist]="item"
+             (objj)="delete(idx)" (change)="edit(item,idx)"
+          ></app-screenlist>
+        </div>
+      </div>
+      <div class="userdata" *ngIf="istrue">
+        <label for="food"> <h3>Food Item</h3> </label>
+        <input [value]="editedvalue?.food" class="input" type="text" id="food" placeholder="Enter Food Item"#food>
+        <label for="" name="cal"> <h3>Gain Calory</h3> </label>
+        <input [value]="editedvalue?.calory" class="input" type="text" id="cal" placeholder="Enter Gain Cal" #calo>
+        <label for="weight"> <h3>Quantity</h3> </label>
+        <input [value]="editedvalue?.weight" class="input" type="text" id="weight" placeholder="Enter Quantity of item" #weight>
+        <input  class="submit" type="submit" (click)="submititems(food.value,calo.value,weight.value)">
+      </div>
+    </div>
+  </div>
+</div>
